@@ -11,5 +11,8 @@
   "dependencies": {
     "aws-sdk": "^2.53.0",
     "node-googleplaces": "^0.1.2"
+  },
+  "devDependencies": {
+    "serverless-secrets-plugin": "0.0.1"
   }
 }

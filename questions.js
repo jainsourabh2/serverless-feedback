@@ -3,6 +3,7 @@
 const AWS = require('aws-sdk');
 const dynamoDB = new AWS.DynamoDB.DocumentClient();
 const sns = new AWS.SNS();
+const ses = new AWS.SES();
 
 module.exports.fetchquestions = (event, context, callback) => {
 
@@ -21,17 +22,33 @@ let placeid;
 		},
 	};
 
-//	const SNSinfo = {
-//		Message: "Thanks for registering to SpeakIt!!",
-//		PhoneNumber: '+918767208564',
-//		TopicArn: "arn:aws:sns:us-west-2:679279306327:" + process.env.SNS_TOPIC_NAME
-//	}
+	const SNSinfo = {
+		Message: "Thanks for registering to SpeakIt!!",
+		TopicArn: "arn:aws:sns:us-west-2:679279306327:" + process.env.SNS_TOPIC_NAME
+	}
 
-        const SNSinfo = {
-                Message: "Thanks for registering to SpeakIt!!",
-                PhoneNumber: '+918767208564'
-        }
+//        const SNSinfo = {
+//                Message: "Thanks for registering to SpeakIt!!",
+//                PhoneNumber: '+918767208564'
+//        }
 
+	const emailParams = {
+		Destination: {
+			ToAddresses: ["jainsourabh2@gmail.com","sourabh.jain@mastek.com"]
+		},
+		Message: {
+			Body: {
+				Text: {
+					Data: "Welcome to SES"
+				}
+			},
+			Subject: {
+				Data: "Welcome"
+			}
+		},
+		ReplyToAddresses: ["jainsourabh2@gmail.com"],
+		Source: "jainsourabh2@gmail.com"
+	}
 	
 	dynamoDB.get(params, (error,result) => {
 		if(error){
@@ -50,11 +67,19 @@ let placeid;
                 			body: JSON.parse(JSON.stringify(result.Item.questions))
         			};
 
-				sns.publish(SNSinfo,(error) => {
-					if(error){
-						console.log("error occured : " + error);
-					}
-				});
+				//sns.publish(SNSinfo,(error) => {
+				//	if(error){
+				//		console.log("error occured : " + error);
+				//	}
+				//});
+
+				//ses.sendEmail(emailParams, function (err, data) {
+      				//	if (err) {
+          			//		console.log(err, err.stack);
+          			//		callback(err);
+      				//	}
+  				//});
+
 
 				callback(null,response);
 			}
