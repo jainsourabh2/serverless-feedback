@@ -127,11 +127,11 @@ functions:
         method: post
         cors: true
         integration: lambda
-        authorizer:
-          name: authorizer
-          arn: arn:aws:cognito-idp:us-west-2:679279306327:userpool/us-west-2_vgFmxBLLV
-          claims:
-            - email
+        #authorizer:
+        #  name: authorizer
+        #  arn: arn:aws:cognito-idp:us-west-2:679279306327:userpool/us-west-2_vgFmxBLLV
+        #  claims:
+        #    - email
 
   emailPushCommits:
     handler: github.pushCommit

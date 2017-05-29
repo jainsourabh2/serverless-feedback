@@ -3,6 +3,10 @@
 const uuid = require('uuid');
 const AWS = require('aws-sdk');
 const dynamoDB = new AWS.DynamoDB.DocumentClient();
+const low = 0;
+const high = 1;
+
+const jsonResponse = JSON.parse('{"couponName":"eBay","couponDesc":"Shop for 5000 and above & Get Free Prepaid Mobile Recharge Worth Rs. 500","couponCode":"EBAY500","couponExpiry":"Valid till 31st Dec 2007"}');
 
 module.exports.postfeedback = (event, context, callback) => {
 	var body;
@@ -33,11 +37,22 @@ module.exports.postfeedback = (event, context, callback) => {
                         callback(null,error);
                 }
                 else{
-                        const response={
-                                statusCode: 200,
-                                body: JSON.parse(JSON.stringify({message:"Successfully Inserted"}))
-                        };
-                        callback(null,response);
+			let couponRandom = Math.floor(Math.random() * (high - low + 1) + low);
+			let response;
+			if(couponRandom === 0)
+			{
+                        	response={
+                                	statusCode: 200,
+                                	body: JSON.parse(JSON.stringify({couponName:jsonResponse.couponName,couponDesc:jsonResponse.couponDesc,couponCode:jsonResponse.couponCode,couponExpiry:jsonResponse.couponExpiry}))
+                        		};
+			} else {
+                                response={
+                                        statusCode: 201,
+                                        body: JSON.parse(JSON.stringify({couponName:"",couponDesc:"",couponCode:"",couponExpiry:""}))
+                                        };
+			}
+			
+			callback(null,response);
                 }
         });
 };
