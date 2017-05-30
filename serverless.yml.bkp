@@ -62,14 +62,15 @@ provider:
 #      Action:
 #        - sns:Publish
 #      Resource: "*"
-#    - Effect: Allow
-#      Sid: AuthorizeAccount
+    - Effect: Allow
+      Sid: AuthorizeAccount
 #      Principal:
 #        AWS: "679279306327"  
-#      Action:
-#        - ses:SendRawEmail
-#        - ses:SendEmail
-#      Resource: "*"
+      Action:
+        - ses:SendRawEmail
+        - ses:SendEmail
+      Resource: "*"
+
 
 # you can add statements to the Lambda function's IAM Role here
 #  iamRoleStatements:
@@ -137,7 +138,6 @@ functions:
 
   emailPushCommits:
     handler: github.pushCommit
-    role: SNSPush
     events:
     - http:
         path: github/pushCommit
@@ -147,36 +147,6 @@ functions:
 
 resources:
   Resources:
-    SNSPush:
-      Type: AWS::IAM::Role
-      Properties:
-        #Path: /my/cust/path/
-        RoleName: SNSPushforGitPush
-        AssumeRolePolicyDocument:
-          Version: '2012-10-17'
-          Statement:
-            - Effect: Allow
-              Principal:
-                Service:
-                  - lambda.amazonaws.com
-              Action: sts:AssumeRole
-        Policies:
-          - PolicyName: myPolicyName
-            PolicyDocument:
-              Version: '2012-10-17'
-              Statement:
-                - Effect: Allow
-                  Action:
-                    - logs:CreateLogGroup
-                    - logs:CreateLogStream
-                    - logs:PutLogEvents
-                  Resource: arn:aws:logs:${opt:region,self:provider.region}:679279306327:log-group:/aws/lambda/*:*:*
-                - Effect: Allow
-                  Sid: AuthorizeAccount
-                  Action:
-                    - ses:SendRawEmail
-                    - ses:SendEmail
-                  Resource: "*"
     DynamoDBQuestionsTable:
       Type: 'AWS::DynamoDB::Table'
       DeletionPolicy: Retain
