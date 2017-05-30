@@ -27,7 +27,7 @@ provider:
     DYNAMODB_QUESTIONS_TABLE: ${self:service}-questions-${opt:stage,self:provider.stage}
     DYNAMODB_FEEDBACK_TABLE: ${self:service}-feedback-${opt:stage,self:provider.stage}
     SNS_TOPIC_NAME: ${self:service}-feedback-${opt:stage,self:provider.stage}
-    GITHUB_WEBHOOK_SECRET: ${file(./secrets.env.yml):${opt:stage}.GITHUB_WEBHOOK_SECRET} 
+    GITHUB_WEBHOOK_SECRET: ${file(./secrets.env.yml):${opt:stage,self:provider.stage}.GITHUB_WEBHOOK_SECRET} 
   stage: dev
   region: us-west-2
   profile: sourabh
@@ -53,23 +53,23 @@ provider:
         - dynamodb:UpdateItem
         - dynamodb:DeleteItem
       Resource: "arn:aws:dynamodb:${opt:region,self:provider.region}:*:table/${self:provider.environment.DYNAMODB_FEEDBACK_TABLE}"
-    - Effect: Allow
-      Action:
-        - sns:Publish 
-      Resource: "arn:aws:sns:${opt:region,self:provider.region}:679279306327:${self:provider.environment.SNS_TOPIC_NAME}"
+#    - Effect: Allow
+#      Action:
+#        - sns:Publish 
+#      Resource: "arn:aws:sns:${opt:region,self:provider.region}:679279306327:${self:provider.environment.SNS_TOPIC_NAME}"
 # The below section is needed if you want to send SMS since there is no ARN for SMS
 #    - Effect: Allow
 #      Action:
 #        - sns:Publish
 #      Resource: "*"
-#    - Effect: Allow
-#      Sid: AuthorizeAccount
+    - Effect: Allow
+      Sid: AuthorizeAccount
 #      Principal:
 #        AWS: "679279306327"  
-#      Action:
-#        - ses:SendRawEmail
-#        - ses:SendEmail
-#      Resource: "*"
+      Action:
+        - ses:SendRawEmail
+        - ses:SendEmail
+      Resource: "*"
 
 # you can add statements to the Lambda function's IAM Role here
 #  iamRoleStatements:
@@ -172,11 +172,10 @@ resources:
                     - logs:PutLogEvents
                   Resource: arn:aws:logs:${opt:region,self:provider.region}:679279306327:log-group:/aws/lambda/*:*:*
                 - Effect: Allow
-                  Sid: AuthorizeAccount
                   Action:
-                    - ses:SendRawEmail
-                    - ses:SendEmail
-                  Resource: "*"
+                    - sns:Publish
+                  Resource: "arn:aws:sns:${opt:region,self:provider.region}:679279306327:${self:provider.environment.SNS_TOPIC_NAME}"
+
     DynamoDBQuestionsTable:
       Type: 'AWS::DynamoDB::Table'
       DeletionPolicy: Retain
