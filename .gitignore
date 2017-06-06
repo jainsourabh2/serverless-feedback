@@ -1,4 +1,3 @@
 #Packages
 node_modules/
 secrets.dev.yml
-secrets.env.yml
