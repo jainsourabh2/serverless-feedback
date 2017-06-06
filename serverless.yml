@@ -27,13 +27,15 @@ provider:
     DYNAMODB_QUESTIONS_TABLE: ${self:service}-questions-${opt:stage,self:provider.stage}
     DYNAMODB_FEEDBACK_TABLE: ${self:service}-feedback-${opt:stage,self:provider.stage}
     SNS_TOPIC_NAME: ${self:service}-feedback-${opt:stage,self:provider.stage}
-    GITHUB_WEBHOOK_SECRET: ${file(./secrets.env.yml):${opt:stage,self:provider.stage}.GITHUB_WEBHOOK_SECRET} 
+    GITHUB_WEBHOOK_SECRET: ${file(./secrets.env.yml):${opt:stage,self:provider.stage}.GITHUB_WEBHOOK_SECRET}
+    USER_POOL_ID: ${file(./secrets.env.yml):${opt:stage,self:provider.stage}.USER_POOL_ID}
+    CLIENT_ID: ${file(./secrets.env.yml):${opt:stage,self:provider.stage}.CLIENT_ID}
   stage: dev
   region: us-west-2
   profile: sourabh
   memorySize: 128
   versionFunctions: false
-  timeout: 10
+  timeout: 20
   iamRoleStatements:
     - Effect: Allow
       Action:
@@ -143,7 +145,31 @@ functions:
         path: github/pushCommit
         method: post
         integration: lambda
-        cors: true  
+        cors: true
+
+  createUser:
+    handler: loginUser.createUser
+    events:
+    - http:
+        path: loginUser/createUser
+        method: post
+        cors: true
+
+  authenticateUser:
+    handler: loginUser.authenticateUser
+    events:
+    - http:
+        path: loginUser/authenticateUser
+        method: post
+        cors: true
+
+  confirmUser:
+    handler: loginUser.confirmUser
+    events:
+    - http:
+        path: loginUser/confirmUser
+        method: post
+        cors: true
 
 resources:
   Resources:

@@ -8,12 +8,12 @@ var AWSCognito = require('amazon-cognito-identity-js');
 
     var userPool = new AWSCognito.CognitoUserPool(poolData);
     var userData = {
-        Username : 'chetan',
+        Username : 'milind',
         Pool : userPool
     };
 
     var cognitoUser = new AWSCognito.CognitoUser(userData);
-    cognitoUser.confirmRegistration('659248', true, function(err, result) {
+    cognitoUser.confirmRegistration('404726', true, function(err, result) {
         if (err) {
             console.log(err);
             return;

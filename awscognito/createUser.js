@@ -13,12 +13,12 @@ var attributeList = [];
  
     var dataEmail = {
         Name : 'email',
-        Value : 'chetan.savdekar@gmail.com'
+        Value : 'milind.vengurlekar@mastek.com'
     };
  
     var dataPhoneNumber = {
         Name : 'phone_number',
-        Value : '+918767208564'
+        Value : '+918850902827'
     };
     var attributeEmail = new AWSCognito.CognitoUserAttribute(dataEmail);
     var attributePhoneNumber = new AWSCognito.CognitoUserAttribute(dataPhoneNumber);
@@ -26,7 +26,7 @@ var attributeList = [];
     attributeList.push(attributeEmail);
     attributeList.push(attributePhoneNumber);
  
-    userPool.signUp('chetan', 'Sourabh007#', attributeList, null, function(err, result){
+    userPool.signUp('milind', 'Sourabh007#', attributeList, null, function(err, result){
         if (err) {
             console.log(err);
             return;

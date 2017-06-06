@@ -6,11 +6,12 @@ const types	=	'restaurant';
 const gp	=	require('node-googleplaces');
 
 module.exports.locationlisting = (event, context, callback) => {
-	let lat,lng;
+	let lat,lng,type='restaurant';
 	//check if the latitude and longitude both are present in the input parametes
 	try{
 		lat = event.queryStringParameters.lat;
 		lng = event.queryStringParameters.lng;
+		type = event.queryStringParameters.type;
 	}catch(e){
 		lat=null;
 		lng=null;
@@ -23,7 +24,7 @@ module.exports.locationlisting = (event, context, callback) => {
 		const params = {
   			location: loc,
   			radius: 500,
-			type: 'restaurant',
+			type: type,
 		};
 
 		places.nearbySearch(params, (err, res) => {

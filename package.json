@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "amazon-cognito-identity-js": "^1.18.0",
     "aws-sdk": "^2.53.0",
     "just.randomcolor": "^0.1.1",
     "node-googleplaces": "^0.1.2"

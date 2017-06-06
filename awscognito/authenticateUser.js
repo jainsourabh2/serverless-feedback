@@ -6,7 +6,7 @@ var AWSCognito = require('amazon-cognito-identity-js');
 	};
 
  	var authenticationData = {
-        	Username : 'jainsourabh2',
+        	Username : 'milind',
         	Password : 'Sourabh007#',
     	};
 
@@ -15,7 +15,7 @@ var AWSCognito = require('amazon-cognito-identity-js');
 	var userPool = new AWSCognito.CognitoUserPool(poolData);
     	
 	var userData = {
-        	Username : 'jainsourabh2',
+        	Username : 'milind',
         	Pool : userPool
     	};
 
@@ -23,7 +23,7 @@ var AWSCognito = require('amazon-cognito-identity-js');
     	console.log("cognitoUser");	
 	cognitoUser.authenticateUser(authenticationDetails, {
         	onSuccess: function (result) {
-            		console.log('access token + ' + result.getAccessToken().getJwtToken());
+            	//	console.log('access token + ' + result.getAccessToken().getJwtToken());
 			console.log('id token + ' + result.getIdToken().getJwtToken());
 		}
 	});
