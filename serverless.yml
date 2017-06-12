@@ -27,9 +27,9 @@ provider:
     DYNAMODB_QUESTIONS_TABLE: ${self:service}-questions-${opt:stage,self:provider.stage}
     DYNAMODB_FEEDBACK_TABLE: ${self:service}-feedback-${opt:stage,self:provider.stage}
     SNS_TOPIC_NAME: ${self:service}-feedback-${opt:stage,self:provider.stage}
-    GITHUB_WEBHOOK_SECRET: ${file(./secrets.env.yml):${opt:stage,self:provider.stage}.GITHUB_WEBHOOK_SECRET}
-    USER_POOL_ID: ${file(./secrets.env.yml):${opt:stage,self:provider.stage}.USER_POOL_ID}
-    CLIENT_ID: ${file(./secrets.env.yml):${opt:stage,self:provider.stage}.CLIENT_ID}
+    GITHUB_WEBHOOK_SECRET: ${file(./secrets.dev.yml):${opt:stage,self:provider.stage}.GITHUB_WEBHOOK_SECRET}
+    USER_POOL_ID: ${file(./secrets.dev.yml):${opt:stage,self:provider.stage}.USER_POOL_ID}
+    CLIENT_ID: ${file(./secrets.dev.yml):${opt:stage,self:provider.stage}.CLIENT_ID}
   stage: dev
   region: us-west-2
   profile: sourabh
@@ -168,6 +168,22 @@ functions:
     events:
     - http:
         path: loginUser/confirmUser
+        method: post
+        cors: true
+
+  resendConfirmation:
+    handler: loginUser.resendConfirmation
+    events:
+    - http:
+        path: loginUser/resendConfirmation
+        method: post
+        cors: true
+
+  deleteUser:
+    handler: loginUser.deleteUser
+    events:
+    - http:
+        path: loginUser/deleteUser
         method: post
         cors: true
 
