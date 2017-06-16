@@ -2,8 +2,8 @@
 
 const apiKey 	= 	'AIzaSyBEsHP5d2bf24_vAE46FaTYihBu8JLCibE';
 const radius	= 	1000;
-const types	=	'restaurant';	
 const gp	=	require('node-googleplaces');
+const request	=	require('request');
 
 module.exports.locationlisting = (event, context, callback) => {
 	let lat,lng,type='restaurant';
@@ -38,9 +38,40 @@ module.exports.locationlisting = (event, context, callback) => {
 	}else{
 		const errresponse={
                                 statusCode: 500,
-                                body: "Missing Input Parameters. Either latitude or longitude or both not provided"
+                                body: JSON.stringify({statusCode:500,msg:'Missing Input Parameters. Either latitude or longitude or both not provided'})
                         };
 		callback(null,errresponse);	
 	}
 
+};
+
+module.exports.placeDetails = (event, context, callback) => {
+
+	let photoReference,url,maxwidth=400;
+
+        try{
+                photoReference = event.queryStringParameters.photoReference;
+        }catch(e){
+                photoReference=null;
+        }
+
+	if (photoReference!=null){
+		url = 'https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference='+photoReference+'&key='+apiKey;
+		console.log(url);
+
+		request(url,{encoding: 'base64'}, function (error, googleresponse, body) {
+                	const response={
+                        	statusCode: 200,
+                                body: JSON.stringify({statusCode:200,out:body})
+                        };
+                	callback(null,response);		
+		});
+	}else{
+                const errresponse={
+                                statusCode: 500,
+                                body: JSON.stringify({statusCode:500,msg:'photoReference paramter is not provided'})
+                        };
+                callback(null,errresponse);
+
+	}
 };

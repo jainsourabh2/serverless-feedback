@@ -49,6 +49,7 @@ module.exports.createUser = (event, context, callback) => {
     			statusCode: 200,
     			body: JSON.stringify({
       				message: 'User Created. User Validation Pending!',
+				statusCode: 200
     			}),
   		};
 
@@ -98,7 +99,8 @@ module.exports.authenticateUser = (event, context, callback) => {
                 	const response = {
                         	statusCode: 200,
                         	body: JSON.stringify({
-                                	authorization: result.getIdToken().getJwtToken()
+                                	authorization: result.getIdToken().getJwtToken(),
+					statusCode: 200
                         	}),
                 	};
                 	callback(null, response);
@@ -140,7 +142,8 @@ module.exports.confirmUser = (event, context, callback) => {
                 const response = {
                 	statusCode: 200,
                         body: JSON.stringify({
-                        	message: 'User Confirmed!!'
+                        	message: 'User Confirmed!!',
+				statusCode: 200
                         }),
                 };
 		callback(null, response);
@@ -182,7 +185,8 @@ module.exports.resendConfirmation = (event, context, callback) => {
                 const response = {
                         statusCode: 200,
                         body: JSON.stringify({
-                                message: 'ReConfirmation Code Sent'
+                                message: 'ReConfirmation Code Sent',
+				statusCode: 200
                         })
                 };
                 callback(null, response);
@@ -232,7 +236,8 @@ module.exports.deleteUser = (event, context, callback) => {
                 		const response = {
                         		statusCode: 200,
                         		body: JSON.stringify({
-                                		message: 'User deleted.'
+                                		message: 'User deleted.',
+						statusCode: 200
                         		})
                 		};
                 		callback(null, response);

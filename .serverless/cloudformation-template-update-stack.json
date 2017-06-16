@@ -11,6 +11,12 @@
         "LogGroupName": "/aws/lambda/feedback-dev-locationlisting"
       }
     },
+    "PhotoReferenceLogGroup": {
+      "Type": "AWS::Logs::LogGroup",
+      "Properties": {
+        "LogGroupName": "/aws/lambda/feedback-dev-photoReference"
+      }
+    },
     "GetquestionsLogGroup": {
       "Type": "AWS::Logs::LogGroup",
       "Properties": {
@@ -109,6 +115,9 @@
                       "Fn::Sub": "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/feedback-dev-locationlisting:*"
                     },
                     {
+                      "Fn::Sub": "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/feedback-dev-photoReference:*"
+                    },
+                    {
                       "Fn::Sub": "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/feedback-dev-getquestions:*"
                     },
                     {
@@ -145,6 +154,9 @@
                   "Resource": [
                     {
                       "Fn::Sub": "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/feedback-dev-locationlisting:*:*"
+                    },
+                    {
+                      "Fn::Sub": "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/feedback-dev-photoReference:*:*"
                     },
                     {
                       "Fn::Sub": "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/feedback-dev-getquestions:*:*"
@@ -233,7 +245,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/feedback/dev/1497257505830-2017-06-12T08:51:45.830Z/feedback.zip"
+          "S3Key": "serverless/feedback/dev/1497610276950-2017-06-16T10:51:16.950Z/feedback.zip"
         },
         "FunctionName": "feedback-dev-locationlisting",
         "Handler": "places.locationlisting",
@@ -262,6 +274,42 @@
         "IamRoleLambdaExecution"
       ]
     },
+    "PhotoReferenceLambdaFunction": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "Code": {
+          "S3Bucket": {
+            "Ref": "ServerlessDeploymentBucket"
+          },
+          "S3Key": "serverless/feedback/dev/1497610276950-2017-06-16T10:51:16.950Z/feedback.zip"
+        },
+        "FunctionName": "feedback-dev-photoReference",
+        "Handler": "places.placeDetails",
+        "MemorySize": 128,
+        "Role": {
+          "Fn::GetAtt": [
+            "IamRoleLambdaExecution",
+            "Arn"
+          ]
+        },
+        "Runtime": "nodejs6.10",
+        "Timeout": 20,
+        "Environment": {
+          "Variables": {
+            "DYNAMODB_QUESTIONS_TABLE": "feedback-questions-dev",
+            "DYNAMODB_FEEDBACK_TABLE": "feedback-feedback-dev",
+            "SNS_TOPIC_NAME": "feedback-feedback-dev",
+            "GITHUB_WEBHOOK_SECRET": "SourabhJainMastek",
+            "USER_POOL_ID": "us-west-2_vgFmxBLLV",
+            "CLIENT_ID": "7vo64go5vvknokfrmlcnpf5eah"
+          }
+        }
+      },
+      "DependsOn": [
+        "PhotoReferenceLogGroup",
+        "IamRoleLambdaExecution"
+      ]
+    },
     "GetquestionsLambdaFunction": {
       "Type": "AWS::Lambda::Function",
       "Properties": {
@@ -269,7 +317,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/feedback/dev/1497257505830-2017-06-12T08:51:45.830Z/feedback.zip"
+          "S3Key": "serverless/feedback/dev/1497610276950-2017-06-16T10:51:16.950Z/feedback.zip"
         },
         "FunctionName": "feedback-dev-getquestions",
         "Handler": "questions.fetchquestions",
@@ -305,7 +353,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/feedback/dev/1497257505830-2017-06-12T08:51:45.830Z/feedback.zip"
+          "S3Key": "serverless/feedback/dev/1497610276950-2017-06-16T10:51:16.950Z/feedback.zip"
         },
         "FunctionName": "feedback-dev-postquestions",
         "Handler": "questions.postquestion",
@@ -341,7 +389,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/feedback/dev/1497257505830-2017-06-12T08:51:45.830Z/feedback.zip"
+          "S3Key": "serverless/feedback/dev/1497610276950-2017-06-16T10:51:16.950Z/feedback.zip"
         },
         "FunctionName": "feedback-dev-postfeedback",
         "Handler": "feedback.postfeedback",
@@ -377,7 +425,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/feedback/dev/1497257505830-2017-06-12T08:51:45.830Z/feedback.zip"
+          "S3Key": "serverless/feedback/dev/1497610276950-2017-06-16T10:51:16.950Z/feedback.zip"
         },
         "FunctionName": "feedback-dev-emailPushCommits",
         "Handler": "github.pushCommit",
@@ -413,7 +461,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/feedback/dev/1497257505830-2017-06-12T08:51:45.830Z/feedback.zip"
+          "S3Key": "serverless/feedback/dev/1497610276950-2017-06-16T10:51:16.950Z/feedback.zip"
         },
         "FunctionName": "feedback-dev-createUser",
         "Handler": "loginUser.createUser",
@@ -449,7 +497,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/feedback/dev/1497257505830-2017-06-12T08:51:45.830Z/feedback.zip"
+          "S3Key": "serverless/feedback/dev/1497610276950-2017-06-16T10:51:16.950Z/feedback.zip"
         },
         "FunctionName": "feedback-dev-authenticateUser",
         "Handler": "loginUser.authenticateUser",
@@ -485,7 +533,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/feedback/dev/1497257505830-2017-06-12T08:51:45.830Z/feedback.zip"
+          "S3Key": "serverless/feedback/dev/1497610276950-2017-06-16T10:51:16.950Z/feedback.zip"
         },
         "FunctionName": "feedback-dev-confirmUser",
         "Handler": "loginUser.confirmUser",
@@ -521,7 +569,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/feedback/dev/1497257505830-2017-06-12T08:51:45.830Z/feedback.zip"
+          "S3Key": "serverless/feedback/dev/1497610276950-2017-06-16T10:51:16.950Z/feedback.zip"
         },
         "FunctionName": "feedback-dev-resendConfirmation",
         "Handler": "loginUser.resendConfirmation",
@@ -557,7 +605,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/feedback/dev/1497257505830-2017-06-12T08:51:45.830Z/feedback.zip"
+          "S3Key": "serverless/feedback/dev/1497610276950-2017-06-16T10:51:16.950Z/feedback.zip"
         },
         "FunctionName": "feedback-dev-deleteUser",
         "Handler": "loginUser.deleteUser",
@@ -674,6 +722,18 @@
           "Ref": "ApiGatewayResourcePlaces"
         },
         "PathPart": "locationlisting",
+        "RestApiId": {
+          "Ref": "ApiGatewayRestApi"
+        }
+      }
+    },
+    "ApiGatewayResourcePlacesPlacedetails": {
+      "Type": "AWS::ApiGateway::Resource",
+      "Properties": {
+        "ParentId": {
+          "Ref": "ApiGatewayResourcePlaces"
+        },
+        "PathPart": "placeDetails",
         "RestApiId": {
           "Ref": "ApiGatewayRestApi"
         }
@@ -827,6 +887,52 @@
         },
         "ResourceId": {
           "Ref": "ApiGatewayResourcePlacesLocationlisting"
+        },
+        "RestApiId": {
+          "Ref": "ApiGatewayRestApi"
+        }
+      }
+    },
+    "ApiGatewayMethodPlacesPlacedetailsOptions": {
+      "Type": "AWS::ApiGateway::Method",
+      "Properties": {
+        "AuthorizationType": "NONE",
+        "HttpMethod": "OPTIONS",
+        "MethodResponses": [
+          {
+            "StatusCode": "200",
+            "ResponseParameters": {
+              "method.response.header.Access-Control-Allow-Origin": true,
+              "method.response.header.Access-Control-Allow-Headers": true,
+              "method.response.header.Access-Control-Allow-Methods": true,
+              "method.response.header.Access-Control-Allow-Credentials": true
+            },
+            "ResponseModels": {}
+          }
+        ],
+        "RequestParameters": {},
+        "Integration": {
+          "Type": "MOCK",
+          "RequestTemplates": {
+            "application/json": "{statusCode:200}"
+          },
+          "IntegrationResponses": [
+            {
+              "StatusCode": "200",
+              "ResponseParameters": {
+                "method.response.header.Access-Control-Allow-Origin": "'*'",
+                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
+                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET'",
+                "method.response.header.Access-Control-Allow-Credentials": "'false'"
+              },
+              "ResponseTemplates": {
+                "application/json": ""
+              }
+            }
+          ]
+        },
+        "ResourceId": {
+          "Ref": "ApiGatewayResourcePlacesPlacedetails"
         },
         "RestApiId": {
           "Ref": "ApiGatewayRestApi"
@@ -1274,6 +1380,44 @@
                 {
                   "Fn::GetAtt": [
                     "LocationlistingLambdaFunction",
+                    "Arn"
+                  ]
+                },
+                "/invocations"
+              ]
+            ]
+          }
+        },
+        "MethodResponses": []
+      }
+    },
+    "ApiGatewayMethodPlacesPlacedetailsGet": {
+      "Type": "AWS::ApiGateway::Method",
+      "Properties": {
+        "HttpMethod": "GET",
+        "RequestParameters": {},
+        "ResourceId": {
+          "Ref": "ApiGatewayResourcePlacesPlacedetails"
+        },
+        "RestApiId": {
+          "Ref": "ApiGatewayRestApi"
+        },
+        "AuthorizationType": "NONE",
+        "Integration": {
+          "IntegrationHttpMethod": "POST",
+          "Type": "AWS_PROXY",
+          "Uri": {
+            "Fn::Join": [
+              "",
+              [
+                "arn:aws:apigateway:",
+                {
+                  "Ref": "AWS::Region"
+                },
+                ":lambda:path/2015-03-31/functions/",
+                {
+                  "Fn::GetAtt": [
+                    "PhotoReferenceLambdaFunction",
                     "Arn"
                   ]
                 },
@@ -1913,7 +2057,7 @@
         "MethodResponses": []
       }
     },
-    "ApiGatewayDeployment1497257506179": {
+    "ApiGatewayDeployment1497610277463": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
@@ -1923,6 +2067,7 @@
       },
       "DependsOn": [
         "ApiGatewayMethodPlacesLocationlistingGet",
+        "ApiGatewayMethodPlacesPlacedetailsGet",
         "ApiGatewayMethodQuestionsFetchquestionsGet",
         "ApiGatewayMethodQuestionsPostquestionPost",
         "ApiGatewayMethodFeedbackPostfeedbackPost",
@@ -1940,6 +2085,39 @@
         "FunctionName": {
           "Fn::GetAtt": [
             "LocationlistingLambdaFunction",
+            "Arn"
+          ]
+        },
+        "Action": "lambda:InvokeFunction",
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:aws:execute-api:",
+              {
+                "Ref": "AWS::Region"
+              },
+              ":",
+              {
+                "Ref": "AWS::AccountId"
+              },
+              ":",
+              {
+                "Ref": "ApiGatewayRestApi"
+              },
+              "/*/*"
+            ]
+          ]
+        }
+      }
+    },
+    "PhotoReferenceLambdaPermissionApiGateway": {
+      "Type": "AWS::Lambda::Permission",
+      "Properties": {
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "PhotoReferenceLambdaFunction",
             "Arn"
           ]
         },

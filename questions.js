@@ -7,7 +7,7 @@ const ses = new AWS.SES();
 
 module.exports.fetchquestions = (event, context, callback) => {
 
-let placeid;
+	let placeid;
 
 	if(typeof event.queryStringParameters == 'undefined'){
 		placeid = 'dd328a1e5a3392cad0a93f3657e696ecd56c93ab';		
@@ -106,7 +106,7 @@ module.exports.postquestion = (event, context, callback) => {
                 else{
                         const response={
                                 statusCode: 200,
-                                body: JSON.stringify({message:"Successfully Inserted"})
+                                body: JSON.stringify({message:"Successfully Inserted",statusCode: 200})
                         };
 			console.log(response);
                         callback(null,response);

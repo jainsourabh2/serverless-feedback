@@ -107,6 +107,14 @@ functions:
         method: get
         cors: true
 
+  photoReference:
+    handler: places.placeDetails
+    events:
+    - http:
+        path: places/placeDetails
+        method: get
+        cors: true
+
   getquestions:
     handler: questions.fetchquestions
     events:

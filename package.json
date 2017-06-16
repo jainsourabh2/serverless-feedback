@@ -12,7 +12,8 @@
     "amazon-cognito-identity-js": "^1.18.0",
     "aws-sdk": "^2.53.0",
     "just.randomcolor": "^0.1.1",
-    "node-googleplaces": "^0.1.2"
+    "node-googleplaces": "^0.1.2",
+    "request": "^2.81.0"
   },
   "devDependencies": {
     "serverless-secrets-plugin": "0.0.1"
