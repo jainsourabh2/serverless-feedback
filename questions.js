@@ -14,13 +14,20 @@ module.exports.fetchquestions = (event, context, callback) => {
 	}else{
 		placeid = event.queryStringParameters.placeid;
 	}
-
+	
 	const params = {
 		TableName: process.env.DYNAMODB_QUESTIONS_TABLE,
 		Key: {
-			placeid: placeid,
-		},
+			placeid: placeid
+		}
 	};
+	
+	const defaultParams = {
+		TableName: process.env.DYNAMODB_QUESTIONS_TABLE,
+		Key: {
+			placeid: 'dd328a1e5a3392cad0a93f3657e696ecd56c93ab',
+		}
+	}	
 
 	const SNSinfo = {
 		Message: "Thanks for registering to SpeakIt!!",
@@ -56,13 +63,26 @@ module.exports.fetchquestions = (event, context, callback) => {
 		}
 		else{
 			if(typeof result.Item == 'undefined'){
-                                const response={
-                                        statusCode: 502,
-                                        body: JSON.stringify({message:"Place not configured"}),
-                                };
-                                callback(null,response);				
+				dynamoDB.get(defaultParams, (error,defaultResult) => {
+			                if(error){
+                        			callback(null,error);
+                			} else {
+						let response = {
+							statusCode: 200,
+							body: JSON.parse(JSON.stringify(defaultResult.Item.questions))
+						};
+						callback(null,response);		
+					}
+
+				});
+
+                                //const response={
+                                //        statusCode: 502,
+                                //        body: JSON.stringify({message:"Place not configured"}),
+                                //};
+                                //callback(null,response);				
 			}else{
-        			const response={
+        			let response={
                 			statusCode: 200,
                 			body: JSON.parse(JSON.stringify(result.Item.questions))
         			};

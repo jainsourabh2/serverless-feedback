@@ -106,6 +106,9 @@ functions:
         path: places/locationlisting
         method: get
         cors: true
+        authorizer:
+          name: authorizer
+          arn: arn:aws:cognito-idp:us-west-2:679279306327:userpool/us-west-2_vgFmxBLLV
 
   photoReference:
     handler: places.placeDetails
@@ -114,6 +117,9 @@ functions:
         path: places/placeDetails
         method: get
         cors: true
+        authorizer:
+          name: authorizer
+          arn: arn:aws:cognito-idp:us-west-2:679279306327:userpool/us-west-2_vgFmxBLLV
 
   getquestions:
     handler: questions.fetchquestions
@@ -122,6 +128,9 @@ functions:
         path: questions/fetchquestions
         method: get
         cors: true
+        authorizer:
+          name: authorizer
+          arn: arn:aws:cognito-idp:us-west-2:679279306327:userpool/us-west-2_vgFmxBLLV
 
   postquestions:
     handler: questions.postquestion
@@ -130,6 +139,9 @@ functions:
         path: questions/postquestion
         method: post
         cors: true
+        authorizer:
+          name: authorizer
+          arn: arn:aws:cognito-idp:us-west-2:679279306327:userpool/us-west-2_vgFmxBLLV
 
   postfeedback:
     handler: feedback.postfeedback
@@ -139,9 +151,9 @@ functions:
         method: post
         cors: true
         integration: lambda
-        #authorizer:
-        #  name: authorizer
-        #  arn: arn:aws:cognito-idp:us-west-2:679279306327:userpool/us-west-2_vgFmxBLLV
+        authorizer:
+          name: authorizer
+          arn: arn:aws:cognito-idp:us-west-2:679279306327:userpool/us-west-2_vgFmxBLLV
         #  claims:
         #    - email
 

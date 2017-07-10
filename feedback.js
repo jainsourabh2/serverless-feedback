@@ -6,7 +6,7 @@ const dynamoDB = new AWS.DynamoDB.DocumentClient();
 const low = 0;
 const high = 1;
 
-const jsonResponse = JSON.parse('{"couponName":"eBay","couponDesc":"Shop for 5000 and above & Get Free Prepaid Mobile Recharge Worth Rs. 500","couponCode":"EBAY500","couponExpiry":"Valid till 31st Dec 2007"}');
+const jsonResponse = JSON.parse('{"couponName":"eBay","couponDesc":"Shop for 5000 and above & Get Free Prepaid Mobile Recharge Worth Rs. 500","couponCode":"EBAY500","couponExpiry":"Valid till 31st Dec 2017"}');
 
 module.exports.postfeedback = (event, context, callback) => {
 	var body;
