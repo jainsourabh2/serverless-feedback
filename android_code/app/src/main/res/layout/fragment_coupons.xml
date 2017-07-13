@@ -1,0 +1,119 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary">
+
+    <LinearLayout
+        android:id="@+id/llFullScreen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/accent_half_rounded_bg"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                style="@style/LargeWhiteTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/congratulations"
+                android:textColor="@color/colorWhite" />
+
+            <TextView
+                style="@style/MediumWhiteTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/now_you_can_claim_your_coupons"
+                android:textColor="@color/colorWhite" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/white_half_rounded_bg"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:paddingBottom="8dp"
+            android:paddingTop="8dp">
+
+            <ImageView
+                android:id="@+id/ivIcon"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="16dp"
+                 />
+
+            <TextView
+                android:id="@+id/tvTitle"
+                style="@style/MediumPrimaryTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/tvSubtitle"
+                style="@style/MediumPrimaryTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="8dp"
+                 />
+
+            <TextView
+                android:id="@+id/tvDescription"
+                style="@style/LargePrimaryTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="8dp"
+                 />
+
+            <ImageView
+                android:id="@+id/ivQRCode"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="16dp"
+                />
+
+            <TextView
+                android:id="@+id/tvCouponCode"
+                style="@style/LargePrimaryTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorLightGrey"
+                android:gravity="center"
+                android:padding="8dp"
+                 />
+
+            <TextView
+                android:id="@+id/tvValidity"
+                style="@style/SmallWhiteTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="8dp"
+                android:text="Valid upto 31 Jun 2017" />
+
+            <Button
+                android:id="@+id/btSaveCoupon"
+                style="@style/GreenButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="@string/save_coupon" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    android:padding="16dp">
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintHorizontal_bias="0.445"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo" />
+
+    <TextView
+        android:id="@+id/textView4"
+        style="@style/MediumWhiteTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/verify_mobile_number_email_id"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+    <TextView
+        android:id="@+id/textView5"
+        style="@style/MediumWhiteTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/kindly_enter_the_otp_below"
+        android:textColor="@color/colorWhite"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        app:layout_constraintHorizontal_bias="0.47" />
+
+    <EditText
+        android:id="@+id/etFirstNumber"
+        style="@style/WhiteEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:ems="2"
+        android:gravity="center"
+        android:inputType="number"
+        android:maxLength="1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/etSecondNumber"
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+    <EditText
+        android:id="@+id/etSecondNumber"
+        style="@style/WhiteEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:ems="2"
+        android:gravity="center"
+        android:inputType="number"
+        android:maxLength="1"
+        app:layout_constraintLeft_toRightOf="@+id/etFirstNumber"
+        app:layout_constraintRight_toLeftOf="@+id/etThirdNumber"
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+    <EditText
+        android:id="@+id/etThirdNumber"
+        style="@style/WhiteEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:ems="2"
+        android:gravity="center"
+        android:inputType="number"
+        android:maxLength="1"
+        app:layout_constraintLeft_toRightOf="@+id/etSecondNumber"
+        app:layout_constraintRight_toLeftOf="@+id/etFourthNumber"
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+    <EditText
+        android:id="@+id/etFourthNumber"
+        style="@style/WhiteEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:ems="2"
+        android:gravity="center"
+        android:inputType="number"
+        android:maxLength="1"
+        app:layout_constraintLeft_toRightOf="@+id/etThirdNumber"
+        app:layout_constraintRight_toLeftOf="@+id/etFifthNumber"
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+    <Button
+        android:id="@+id/btSubmit"
+        style="@style/AccentButtonStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/submit"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvResendOTP"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintHorizontal_bias="1.0" />
+
+    <EditText
+        android:id="@+id/etFifthNumber"
+        style="@style/WhiteEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:ems="2"
+        android:gravity="center"
+        android:inputType="number"
+        android:maxLength="1"
+        app:layout_constraintLeft_toRightOf="@+id/etFourthNumber"
+        app:layout_constraintTop_toBottomOf="@+id/textView5"
+        app:layout_constraintRight_toLeftOf="@+id/etSixthNumber" />
+
+    <EditText
+        android:id="@+id/etSixthNumber"
+        style="@style/WhiteEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:ems="2"
+        android:gravity="center"
+        android:inputType="number"
+        android:maxLength="1"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5"
+        app:layout_constraintLeft_toRightOf="@+id/etFifthNumber" />
+
+    <TextView
+        android:id="@+id/tvResendOTP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/resend_otp"
+        style="@style/LargeWhiteTextView"
+        android:textStyle="bold"
+        android:padding="8dp"
+        android:textColor="@color/colorWhite"
+        android:drawableLeft="@drawable/ic_resend"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etThirdNumber" />
+
+
+</android.support.constraint.ConstraintLayout>

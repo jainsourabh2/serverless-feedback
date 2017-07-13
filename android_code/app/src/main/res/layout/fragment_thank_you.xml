@@ -1,0 +1,45 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    android:gravity="center"
+    android:padding="16dp">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/accent_button_bg"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/thank_you_for_your_feedback"
+            android:gravity="center"
+            android:textColor="@color/colorWhite"
+            android:textStyle="bold"
+            android:textSize="24sp"/>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/go_ahead_and_take_more_feedback"
+            android:gravity="center"
+            android:textColor="@color/colorWhite"
+            style="@style/MediumWhiteTextView"
+            android:layout_marginTop="16dp"/>
+
+        <Button
+            android:id="@+id/btExit"
+            style="@style/GreenButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="16dp"
+            android:text="@string/exit" />
+    </LinearLayout>
+
+</LinearLayout>

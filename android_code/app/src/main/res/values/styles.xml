@@ -1,0 +1,125 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.AppCompat.Light.NoActionBar.FullScreen" parent="@style/AppTheme">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+    <style name="WhiteEditText" parent="Widget.AppCompat.EditText">
+        <item name="android:background">@drawable/white_edittext_bg</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:textColorHint">@color/colorWhiteText</item>
+        <item name="android:textColor">@color/colorPrimaryText</item>
+        <item name="android:textSize">@dimen/medium_text_size</item>
+    </style>
+
+    <style name="WhiteTextView">
+        <item name="android:textColor">@color/colorWhiteText</item>
+    </style>
+
+    <style name="AccentTextView">
+        <item name="android:textColor">@color/colorAccent</item>
+    </style>
+
+    <style name="PrimaryTextView">
+        <item name="android:textColor">@color/colorPrimaryText</item>
+    </style>
+
+    <style name="SmallWhiteTextView" parent="@style/WhiteTextView">
+        <item name="android:textSize">@dimen/small_text_size</item>
+    </style>
+
+    <style name="MediumWhiteTextView" parent="@style/WhiteTextView">
+        <item name="android:textSize">@dimen/medium_text_size</item>
+    </style>
+
+    <style name="LargeWhiteTextView" parent="@style/WhiteTextView">
+        <item name="android:textSize">@dimen/large_text_size</item>
+    </style>
+
+    <style name="SmallAccentTextView" parent="@style/AccentTextView">
+        <item name="android:textSize">@dimen/small_text_size</item>
+    </style>
+
+    <style name="MediumAccentTextView" parent="@style/AccentTextView">
+        <item name="android:textSize">@dimen/medium_text_size</item>
+    </style>
+
+    <style name="LargeAccentTextView" parent="@style/AccentTextView">
+        <item name="android:textSize">@dimen/large_text_size</item>
+    </style>
+
+    <style name="SmallPrimaryTextView" parent="@style/PrimaryTextView">
+        <item name="android:textSize">@dimen/small_text_size</item>
+    </style>
+
+    <style name="MediumPrimaryTextView" parent="@style/PrimaryTextView">
+        <item name="android:textSize">@dimen/medium_text_size</item>
+    </style>
+
+    <style name="LargePrimaryTextView" parent="@style/PrimaryTextView">
+        <item name="android:textSize">@dimen/large_text_size</item>
+    </style>
+
+    <style name="AccentButtonStyle" parent="@style/Widget.AppCompat.Button">
+        <item name="android:background">@drawable/accent_button_bg</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:textColor">@color/colorWhite</item>
+    </style>
+
+    <style name="ListViewStyle" parent="Widget.AppCompat.ListView">
+        <item name="android:divider">@color/colorWhiteText</item>
+        <item name="android:dividerHeight">0.5dp</item>
+        <item name="android:cacheColorHint">@color/colorTransparent</item>
+        <item name="android:scrollbars">none</item>
+        <item name="android:fastScrollEnabled">true</item>
+        <item name="android:fadingEdge">none</item>
+    </style>
+
+    <style name="CustomRatingBar" parent="@android:style/Widget.RatingBar">
+        <item name="android:progressDrawable">@drawable/rating_bar_full</item>
+        <item name="android:minHeight">16dip</item>
+        <item name="android:maxHeight">16dip</item>
+        <item name="android:numStars">5</item>
+        <item name="android:stepSize">1</item>
+    </style>
+
+    <style name="CustomRatingBarBig" parent="@android:style/Widget.RatingBar">
+        <item name="android:progressDrawable">@drawable/rating_bar_big</item>
+        <item name="android:minHeight">36dip</item>
+        <item name="android:maxHeight">36dip</item>
+        <item name="android:numStars">5</item>
+        <item name="android:stepSize">1</item>
+    </style>
+
+    <style name="GreenButtonStyle" parent="@style/Widget.AppCompat.Button">
+        <item name="android:background">@drawable/green_button_bg</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:padding">8dp</item>
+    </style>
+
+    <style name="TransparentDialogTheme">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowTitleStyle">@null</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+        <item name="android:windowSoftInputMode">stateUnspecified|adjustPan</item>
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+</resources>

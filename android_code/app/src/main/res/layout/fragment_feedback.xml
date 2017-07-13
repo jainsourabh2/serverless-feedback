@@ -1,0 +1,129 @@
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+
+    <android.support.constraint.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/guideline3"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.4"
+        tools:layout_editor_absoluteY="205dp"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <ImageView
+        android:id="@+id/ivBackground"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/guideline3"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <View android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/colorTransparentBlack"
+        app:layout_constraintTop_toTopOf="@+id/ivBackground"
+        app:layout_constraintBottom_toBottomOf="@+id/ivBackground"
+        app:layout_constraintLeft_toLeftOf="@+id/ivBackground"
+        app:layout_constraintRight_toRightOf ="@+id/ivBackground"
+        android:id="@+id/view2"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/LargeWhiteTextView"
+        android:textStyle="bold"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp" />
+
+    <ImageView
+        android:id="@+id/ivIcon"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitle"
+        android:layout_marginStart="32dp" />
+
+    <TextView
+        android:id="@+id/tvAddress"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintLeft_toRightOf="@+id/ivIcon"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/ivIcon"
+        style="@style/SmallWhiteTextView"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="2dp"
+        app:layout_constraintHorizontal_bias="0.0" />
+
+    <View android:layout_width="40dp"
+        android:layout_height="1dp"
+        android:background="@color/colorAccent"
+        app:layout_constraintTop_toBottomOf="@+id/tvAddress"
+        android:id="@+id/view3"
+        android:layout_marginTop="8dp"
+        app:layout_constraintLeft_toLeftOf="@+id/tvAddress" />
+
+    <LinearLayout
+        android:id="@+id/llRatingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/view3"
+        app:layout_constraintLeft_toLeftOf="@+id/view3"
+        android:layout_marginTop="8dp"
+        android:gravity="center_vertical">
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/average_rating"
+        style="@style/SmallWhiteTextView"
+        />
+
+    <RatingBar
+        android:id="@+id/rbAverage"
+        style="@style/CustomRatingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:rating="3"
+        android:layout_marginLeft="8dp"
+        android:isIndicator="true"/>
+
+    </LinearLayout>
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vpFeedback"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="36dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/llRatingBar"
+        />
+</android.support.constraint.ConstraintLayout>

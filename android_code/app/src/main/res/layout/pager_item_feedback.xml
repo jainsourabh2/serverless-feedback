@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:background="@drawable/white_edittext_bg"
+            android:elevation="10dp"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tvVenue"
+                    style="@style/SmallPrimaryTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_weight="1"
+                    android:drawableLeft="@drawable/ic_venue"
+                    android:drawablePadding="5dp"
+                    android:gravity="center_vertical"
+                    android:text="Venue" />
+
+
+                <TextView
+                    android:id="@+id/tvSkip"
+                    style="@style/MediumWhiteTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:text="@string/skip"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvQuestion"
+                style="@style/LargePrimaryTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_weight="1" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/colorLightGrey" />
+
+            <RatingBar
+                android:id="@+id/rbFeedback"
+                style="@style/CustomRatingBarBig"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:numStars="5"
+                android:rating="3"
+                android:stepSize="1" />
+
+            <EditText
+                android:id="@+id/etComment"
+                style="@style/WhiteEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:hint="@string/type_your_comment" />
+
+            <TextView
+                android:id="@+id/tvAttachFile"
+                style="@style/SmallWhiteTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/attach_relavent_picture" />
+
+            <Button
+                android:id="@+id/btNext"
+                style="@style/GreenButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="8dp"
+                android:text="@string/next" />
+        </LinearLayout>
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/tvPageCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/accent_button_bg"
+        android:elevation="11dp"
+        android:padding="8dp"
+        android:text="1/20"
+        android:textColor="@color/colorWhite" />
+
+</FrameLayout>

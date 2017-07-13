@@ -1,0 +1,71 @@
+<resources>
+    <string name="app_name">Speak It</string>
+    <string name="title_activity_login">Sign in</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password (optional)</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="dont_have_account_signup">Don\'t have an account? <b>Sign Up</b></string>
+    <string name="sign_in">Sign In</string>
+    <string name="hello">Hello!</string>
+    <string name="signup_intro_text">Quisque euismod consequat iaculis. conse Quisque euismod consequat iaculis.</string>
+    <string name="email">E-mail</string>
+    <string name="password">Password</string>
+    <string name="re_enter_password">Re-enter Password</string>
+    <string name="i_agree_to_terms_and_conditions">I agree to the <b>Terms &amp; Conditions</b></string>
+    <string name="or">OR</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="reset">Reset</string>
+
+    <string name="select_resturant_for_feedback">Select restaurant for feedback</string>
+    <string name="average_rating">Average Ratings</string>
+    <string name="skip">Skip</string>
+    <string name="type_your_comment">Type your comment</string>
+    <string name="attach_relavent_picture">Attach a relavent picture</string>
+    <string name="next">Next</string>
+    <string name="congratulations"><b>Congratulations</b></string>
+    <string name="now_you_can_claim_your_coupons">Now you can claim your coupons !</string>
+    <string name="save_coupon">Save Coupon</string>
+    <string name="thank_you_for_your_feedback">Thank You \n for your Feedback</string>
+    <string name="go_ahead_and_take_more_feedback"><![CDATA[Go ahead and take up more feedback & claim free coupons for your favourite places]]></string>
+    <string name="exit">Exit</string>
+    <string name="mobile_number">Mobile Number</string>
+    <string name="please_enter_email_address">Please enter email address.</string>
+    <string name="please_enter_valid_email_address">Please enter valid email address.</string>
+    <string name="please_enter_mobile_number">Please enter mobile number.</string>
+    <string name="please_enter_password">Please enter password.</string>
+    <string name="please_re_enter_password">Please re-enter password.</string>
+    <string name="entered_password_and_confirm_password_is_not_matching">Entered password and confirm password are not matching.</string>
+    <string name="ok">Ok</string>
+    <string name="no_internet_connection">No internet connection, please try again later.</string>
+    <string name="please_accept_terms_and_conditions">Please accept our terms and conditions.</string>
+    <string name="verify_mobile_number_email_id">Verify Mobile Number/ Email-Id</string>
+    <string name="kindly_enter_the_otp_below">Kindly enter the 6-digit OTP below</string>
+    <string name="submit">Submit</string>
+    <string name="user_created_successfully">User created successfully.</string>
+    <string name="please_enter_valid_otp">Please enter valid OTP.</string>
+    <string name="username">Username</string>
+    <string name="resend_otp">Re-send OTP</string>
+    <string name="please_wait">Please wait...</string>
+    <string name="coupons_saved_successfully">Coupon saved successfully.</string>
+    <string name="finish">Finish</string>
+    <string name="coupon_code">Coupon Code</string>
+    <string name="valid_upto">Valid upto</string>
+    <string name="please_turn_on_gps">Please turn on GPS to detect your location</string>
+    <string name="please_enter_valid_mobile_number">Please enter valid mobile number.</string>
+    <string name="password_length_too_short">Password length too short.</string>
+    <string name="auth_error_message">com.android.volley.AuthFailureError</string>
+    <string name="invalid_login_msg">Internal server error</string>
+    <string name="invalid_credentials">Invalid credentials! Please try again</string>
+    <string name="volley_server_error">com.android.volley.ServerError</string>
+</resources>
