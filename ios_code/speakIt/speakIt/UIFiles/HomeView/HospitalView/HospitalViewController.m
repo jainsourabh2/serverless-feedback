@@ -13,7 +13,7 @@
 #import "SVProgressHUD.h"
 #import "AFHTTPSessionManager.h"
 #import "AFNetworking.h"
-
+#import "LSViewController.h"
 
 @interface HospitalViewController ()
 
@@ -90,12 +90,12 @@
     
     if (currentLocation != nil) {
         //On device
-        //        currentLat = [NSString stringWithFormat:@"%.8f",currentLocation.coordinate.latitude];
-        //        currentLong = [NSString stringWithFormat:@"%.8f",currentLocation.coordinate.longitude];
+        currentLat = [NSString stringWithFormat:@"%.8f",currentLocation.coordinate.latitude];
+        currentLong = [NSString stringWithFormat:@"%.8f",currentLocation.coordinate.longitude];
         
         //custom
-        currentLat = @"19.112189";
-        currentLong = @"73.016490";
+        //currentLat = @"19.112189";
+        //currentLong = @"73.016490";
         
     }
     
@@ -169,7 +169,13 @@
     } failure:^(NSURLSessionTask *operation, NSError *error) {
         NSLog(@"Error: %@", error);
         [SVProgressHUD dismiss];
-        [self showAlert:@"Don't have any data.."];
+        //[self showAlert:@"Don't have any data.."];
+        NSLog(@"expire device token");
+        //If device token expire to goes to LSViewController call
+        LSViewController *lsView = GETVIEWCONTROLLERFROMIDENTIFIER(@"launch");
+        [self presentViewController:lsView animated:NO completion:^{
+            
+        }];
     }];
     
     

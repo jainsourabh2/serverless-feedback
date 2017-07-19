@@ -18,6 +18,7 @@
 #import "AFNetworking.h"
 #import "NSData+Base64.h"
 #import "HomeViewController.h"
+#import "LSViewController.h"
 
 
 @interface FeedbackViewController ()<nextpagerDelegate>
@@ -172,6 +173,13 @@
         NSLog(@"Error: %@", error);
         [SVProgressHUD dismiss];
         [self showAlert:@"Don't have any data.."];
+        NSLog(@"expire device token");
+        //If device token expire to goes to LSViewController call
+        LSViewController *lsView = GETVIEWCONTROLLERFROMIDENTIFIER(@"launch");
+        [self presentViewController:lsView animated:NO completion:^{
+            
+        }];
+
     }];
 }
 

@@ -29,6 +29,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *btnForFinishObj;
 @property (weak, nonatomic) IBOutlet UIButton *btnForNextObj;
 
+@property (strong, nonatomic) IBOutlet UIView *viewForTotalCount;
+
 - (IBAction)btnForNext:(id)sender;
 - (IBAction)btnForFinish:(id)sender;
 

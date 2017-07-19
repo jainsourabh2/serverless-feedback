@@ -37,6 +37,18 @@
 
 -(void)viewDidAppear:(BOOL)animated
 {
+    /*
+    if (iPhone5) {
+        _viewForTotalCount.frame = CGRectMake(_viewForTotalCount.frame.origin.x, _viewForTotalCount.frame.origin.y, _viewForTotalCount.frame.size.width, _viewForTotalCount.frame.size.height);
+    }else if (iPhone6){
+        _viewForTotalCount.frame = CGRectMake(_viewForTotalCount.frame.origin.x, _viewForTotalCount.frame.origin.y - 400, _viewForTotalCount.frame.size.width, _viewForTotalCount.frame.size.height);
+    }else if (iPhone6plus)
+    {
+        
+    }else{
+        
+    }
+    */
     self.screenNumber.text = [NSString stringWithFormat:@"%ld/%ld", (long)self.indexPage +1,(long)self.totalSize];
     self.lblQuestion.text = [NSString stringWithFormat:@"%@",self.strQuestion];
     NSLog(@"Total: %ld",(long)_totalSize);
@@ -72,7 +84,7 @@
 - (IBAction)btnForFinish:(id)sender
 {
     NSLog(@"id: %@",[[NSUserDefaults standardUserDefaults] valueForKey:USER_PLACEID]);
-    NSString *uId = @"12345";
+    NSString *uId = [[NSUserDefaults standardUserDefaults] valueForKey:USER_MOBILENO];
     User *user = [[User alloc] init];
     user.userAuthorization = [[NSUserDefaults standardUserDefaults] valueForKey:USER_AUTHORIZATION];
     NSArray *keys=[dictForQueWithFeed allKeys];
